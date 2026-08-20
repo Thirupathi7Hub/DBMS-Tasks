@@ -9,7 +9,7 @@
 ---
 
 ## 📌 Project Overview
-The **E-Commerce Order Management Database System** is a centralized relational database project designed to model, automate, and manage the complete lifecycle of customer orders in an e-commerce platform. It handles catalog organization, seller inventory tracking, order processing, payment transactions, and customer reviews/ratings.
+The **E-Commerce Order Management Database System** is a centralized relational database project designed to model, automate, and manage the complete lifecycle of customer orders in an e-commerce platform. It handles catalog organization, seller inventory tracking, order processing, payment transactions, customer reviews/ratings, and analytical SQL querying.
 
 ---
 
@@ -52,6 +52,10 @@ The **E-Commerce Order Management Database System** is a centralized relational 
 * **Key Schemas:**
   * `Review` (`ReviewID`, `ProductID`, `CustomerName`, `ReviewText`, `ReviewDate`)
   * `Rating` (`RatingID`, `ProductID`, `CustomerName`, `Rating`)
+
+### 📄 Task 7: SQL Query Implementation for E-Commerce Database
+* **File:** `Task 7 - SQL Query Implementation for E-Commerce Database.docx`
+* **Description:** Implementation of essential SQL data retrieval queries using `SELECT`, `WHERE`, `ORDER BY`, `DISTINCT`, and `BETWEEN` operations across product catalog and transaction data.
 
 ---
 
@@ -142,6 +146,34 @@ CREATE TABLE Rating (
     Rating INT,
     FOREIGN KEY (ProductID) REFERENCES Product(ProductID)
 );
+```
+
+---
+
+## 📊 Useful SQL Queries (Task 7 Examples)
+
+```sql
+-- Display all products and specific columns
+SELECT * FROM Product;
+SELECT ProductName, Price FROM Product;
+
+-- Filter products by price thresholds
+SELECT * FROM Product WHERE Price > 10000;
+SELECT * FROM Product WHERE Price < 5000;
+
+-- Sort products by price ascending & descending
+SELECT * FROM Product ORDER BY Price ASC;
+SELECT * FROM Product ORDER BY Price DESC;
+
+-- Get unique payment modes & categories
+SELECT DISTINCT CategoryID FROM Product;
+SELECT DISTINCT PaymentMode FROM Payment;
+
+-- Search products in a specific price range
+SELECT * FROM Product WHERE Price BETWEEN 1000 AND 30000;
+
+-- Filter products by category
+SELECT * FROM Product WHERE CategoryID = 1;
 ```
 
 ---
